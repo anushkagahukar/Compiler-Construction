@@ -1,0 +1,18 @@
+%{
+#include<stdio.h>
+int counter = 0;
+%}
+%%
+[A,a][a-zA-z]* {counter++;}
+%%
+
+int main(){
+printf("Enter a sentence: ");
+yylex();
+printf("Number of words startingwith A: %d", counter);
+return 0;
+}
+int yywrap()
+{
+return 1;
+}
